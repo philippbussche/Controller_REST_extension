@@ -11,24 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.appdynamics/controller-api/3.7.10/jar/c839fe711bf1884e9e4499d891f31db4fb47d0d2/controller-api-3.7.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.appdynamics/controller-beans/3.7.10/jar/873baa5cbbb6dc784fedf9e08b4a282c4fe19ab1/controller-beans-3.7.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" exported="" name="jettison-1.1" level="project" />
     <orderEntry type="library" exported="" name="stax2-api-3.1.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-mapper-asl-1.9.2" level="project" />
