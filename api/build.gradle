@@ -1,0 +1,21 @@
+
+apply plugin:'java'
+
+
+dependencies {
+    compile 'com.appdynamics:controller-api:3.7.10'
+    compile 'com.appdynamics:controller-beans:3.7.10'
+    compile 'com.sun.jersey:jersey-core:1.17.1'
+
+}
+
+compileJava {
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+    options.bootClasspath = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar"
+}
+
+
+jar {
+    archiveName='ace_Rest'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
+}
