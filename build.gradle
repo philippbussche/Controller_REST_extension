@@ -1,7 +1,7 @@
 allprojects {
     apply plugin: 'idea'
 
-    group = 'com.appdynamics.ace'
+    group = 'com.appdynamics.ace.rest'
     version = '1.0'
 
     idea{
@@ -18,7 +18,6 @@ allprojects {
         url "http://nexus.marx-merten.de/nexus/content/groups/allAce/"
         }
     }
-
 }
 
 configurations {
@@ -26,19 +25,11 @@ configurations {
 }
 
 dependencies {
-    release project (':util')
-    release project (':api')
-    release project (':server')
-
-
+    release project (':rest_util')
+    release project (':rest_api')
+    release project (':rest_server')
 }
 
-
-task tst << {
-    println "TESTER"
-    println configurations.release
-
-}
 
 
 task packageServer(type: Zip) {
@@ -51,12 +42,40 @@ task packageServer(type: Zip) {
     baseName ='ACE_RestServer'
     extension = 'zip'
     version = '1.0'
-
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.8'
 }
+
+task clean << {
+    delete('build')
+}
+
+task build (dependsOn: packageServer) << {}
+
+
+// Server Code Publish
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        mavenJava (MavenPublication) {
+            artifactId 'rest-server'
+
+            artifact packageServer {
+                extension "zip"
+            }
+        }
+    }
+    repositories {
+        maven {
+
+            url "file:////vlab/maven/artifact-library/repo"
+        }
+    }
+}
+
 
 
 

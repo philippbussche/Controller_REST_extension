@@ -1,4 +1,4 @@
-include 'util','api','clientWrapper','server'
+include 'rest_util','rest_api','rest_clientWrapper','rest_server'
 //'web-ui','backend-server' ,'backend-api','web-new'
 //,'web-grails'
 

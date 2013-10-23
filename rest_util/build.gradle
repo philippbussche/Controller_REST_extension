@@ -1,4 +1,5 @@
 apply plugin:'java'
+apply from: file("../publish.gradle")
 
 dependencies {
     compile 'commons-codec:commons-codec:1.3'
@@ -12,7 +13,7 @@ dependencies {
 
     compile 'com.sun.xml.ws:jaxws-rt:2.2.9-b14002'
 
-    compile project(":api")
+    compile project(":rest_api")
 
 
 //    testCompile "junit:junit:4.11"

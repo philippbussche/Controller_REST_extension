@@ -177,11 +177,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ACE_RestServices.iml" filepath="$PROJECT_DIR$/ACE_RestServices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/clientWrapper/clientWrapper.iml" filepath="$PROJECT_DIR$/clientWrapper/clientWrapper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/clientWrapper.iml" filepath="$PROJECT_DIR$/clientWrapper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_api/rest_api.iml" filepath="$PROJECT_DIR$/rest_api/rest_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_clientWrapper/rest_clientWrapper.iml" filepath="$PROJECT_DIR$/rest_clientWrapper/rest_clientWrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_server/rest_server.iml" filepath="$PROJECT_DIR$/rest_server/rest_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_util/rest_util.iml" filepath="$PROJECT_DIR$/rest_util/rest_util.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
@@ -225,13 +224,6 @@
     <library name="controller-api-3.7.10">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.appdynamics/controller-api/3.7.10/jar/c839fe711bf1884e9e4499d891f31db4fb47d0d2/controller-api-3.7.10.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="controller-beans-3.7.10">
-      <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.appdynamics/controller-beans/3.7.10/jar/873baa5cbbb6dc784fedf9e08b4a282c4fe19ab1/controller-beans-3.7.10.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -592,6 +584,47 @@
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.codehaus.woodstox/woodstox-core-asl/4.1.2/source/73cb83331943df48d787b19078593d350453d391/woodstox-core-asl-4.1.2-sources.jar!/" />
       </SOURCES>
     </library>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl />
+          </splitter-proportions>
+          <settings />
+        </UIState>
+      </state>
+      <state key="Copyright.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl />
+          </splitter-proportions>
+        </UIState>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl>
+              <option name="proportions">
+                <list>
+                  <option value="0.2" />
+                </list>
+              </option>
+            </SplitterProportionsDataImpl>
+          </splitter-proportions>
+          <last-edited>1.6</last-edited>
+        </UIState>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl />
+          </splitter-proportions>
+          <settings />
+        </UIState>
+      </state>
+    </states>
   </component>
 </project>
 

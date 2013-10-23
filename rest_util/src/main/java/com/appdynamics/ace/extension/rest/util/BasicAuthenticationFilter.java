@@ -34,14 +34,11 @@ public class BasicAuthenticationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        _logger.log(Level.INFO,"TESTER");
-        _logger.log(Level.INFO,"T:"+request.getClass().getName());
 
         HttpServletRequest httpReq = (HttpServletRequest) request;
         HttpServletResponse httpResp = (HttpServletResponse) response;
 
 
-        _logger.log(Level.INFO,"NAME:::"+httpReq.getServerName());
 
 
         String basicAuth = httpReq.getHeader("Authorization");

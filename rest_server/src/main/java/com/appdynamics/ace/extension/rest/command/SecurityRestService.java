@@ -3,13 +3,14 @@ package com.appdynamics.ace.extension.rest.command;
 import com.appdynamics.ace.extension.rest.command.api.DataNotFoundException;
 import com.appdynamics.ace.extension.rest.command.api.ISecurityService;
 import com.appdynamics.ace.extension.rest.command.api.RestException;
+import com.appdynamics.ace.extension.rest.util.BeanLocator;
 import com.singularity.ee.controller.api.dto.Group;
 import com.singularity.ee.controller.api.dto.User;
 import com.singularity.ee.controller.api.exceptions.ServerException;
 import com.singularity.ee.controller.api.services.model.IAccountManager;
 import com.singularity.ee.controller.api.services.model.IGroupManager;
 import com.singularity.ee.controller.api.services.model.IUserManager;
-import com.singularity.ee.controller.beans.ContextImpl;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -34,9 +35,9 @@ public class SecurityRestService implements ISecurityService {
     private final IGroupManager _groupManager;
 
     public SecurityRestService () {
-        _userManager = ContextImpl.getInstance().getGlobalBeanInstance(IUserManager.class);
-        _accountManager = ContextImpl.getInstance().getGlobalBeanInstance(IAccountManager.class);
-        _groupManager = ContextImpl.getInstance().getGlobalBeanInstance(IGroupManager.class);
+        _userManager = BeanLocator.getInstance().getGlobalBeanInstance(IUserManager.class);
+        _accountManager = BeanLocator.getInstance().getGlobalBeanInstance(IAccountManager.class);
+        _groupManager = BeanLocator.getInstance().getGlobalBeanInstance(IGroupManager.class);
     }
 
     @GET
