@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="303bef40-134f-482f-a894-fcb1fef3160c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/util/BeanLocator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/publish.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/publish_Sonotype.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/publish_apmcentral.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest_api/rest_api.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest_clientWrapper/rest_clientWrapper.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest_server/rest_server.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest_util/rest_util.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rest_api/api.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rest_api/src/clientWrapper.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rest_clientWrapper/clientWrapper.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rest_server/server.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rest_util/util.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/build.gradle" afterPath="$PROJECT_DIR$/rest_api/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/src/main/java/com/appdynamics/ace/extension/rest/command/api/Constants.java" afterPath="$PROJECT_DIR$/rest_api/src/main/java/com/appdynamics/ace/extension/rest/command/api/Constants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/src/main/java/com/appdynamics/ace/extension/rest/command/api/DataNotFoundException.java" afterPath="$PROJECT_DIR$/rest_api/src/main/java/com/appdynamics/ace/extension/rest/command/api/DataNotFoundException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/src/main/java/com/appdynamics/ace/extension/rest/command/api/ISecurityService.java" afterPath="$PROJECT_DIR$/rest_api/src/main/java/com/appdynamics/ace/extension/rest/command/api/ISecurityService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/src/main/java/com/appdynamics/ace/extension/rest/command/api/RestException.java" afterPath="$PROJECT_DIR$/rest_api/src/main/java/com/appdynamics/ace/extension/rest/command/api/RestException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/clientWrapper/build.gradle" afterPath="$PROJECT_DIR$/rest_clientWrapper/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/AceRestClient.java" afterPath="$PROJECT_DIR$/rest_clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/AceRestClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/RestClientException.java" afterPath="$PROJECT_DIR$/rest_clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/RestClientException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/SecurityServiceClient.java" afterPath="$PROJECT_DIR$/rest_clientWrapper/src/main/java/com/appdynamics/ace/extension/rest/client/SecurityServiceClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/build.gradle" afterPath="$PROJECT_DIR$/rest_server/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/src/main/java/com/appdynamics/ace/extension/rest/command/SecurityRestService.java" afterPath="$PROJECT_DIR$/rest_server/src/main/java/com/appdynamics/ace/extension/rest/command/SecurityRestService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/build.gradle" afterPath="$PROJECT_DIR$/rest_util/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/src/main/java/com/appdynamics/ace/extension/rest/command/HelloWorld.java" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/command/HelloWorld.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/src/main/java/com/appdynamics/ace/extension/rest/command/HelloWorldData.java" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/command/HelloWorldData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/src/main/java/com/appdynamics/ace/extension/rest/util/BasicAuthenticationFilter.java" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/util/BasicAuthenticationFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/src/main/java/com/appdynamics/ace/extension/rest/util/PojoMapper.java" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/util/PojoMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/util/src/main/java/com/appdynamics/ace/extension/rest/util/RestServlet.java" afterPath="$PROJECT_DIR$/rest_util/src/main/java/com/appdynamics/ace/extension/rest/util/RestServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACE_RestServices.ipr" afterPath="$PROJECT_DIR$/ACE_RestServices.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACE_RestServices.iws" afterPath="$PROJECT_DIR$/ACE_RestServices.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="ACE_RestServices.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +30,7 @@
     <file path="/DataNotFoundException.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382400307711" ignored="false" />
     <file path="/RestException.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382400350818" ignored="false" />
     <file path="/SecurityRestService.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382565937842" ignored="false" />
-    <file path="/Dummy.txt" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382566257694" ignored="false" />
+    <file path="/Dummy.txt" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382566273515" ignored="false" />
     <file path="/Main.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382548063981" ignored="false" />
     <file path="/AceRestClient.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382403831726" ignored="false" />
     <file path="/SecurityServiceClient.java" changelist="303bef40-134f-482f-a894-fcb1fef3160c" time="1382416168764" ignored="false" />
@@ -797,7 +763,11 @@
       <created>1382419269713</created>
       <updated>1382419269713</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed Dependencies and Naming Schema.&#10;Publish to new github repo&#10;">
+      <created>1382566280580</created>
+      <updated>1382566280580</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
