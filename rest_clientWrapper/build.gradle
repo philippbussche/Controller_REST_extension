@@ -20,5 +20,5 @@ compileJava {
 }
 
 jar {
-    archiveName='ace_Rest'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
+    archiveName='ace_'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
 }

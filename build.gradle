@@ -15,7 +15,7 @@ allprojects {
     repositories {
     mavenCentral()
     maven {
-        url "http://nexus.marx-merten.de/nexus/content/groups/allAce/"
+        url "https://raw.github.com/Appdynamics/artifact-library/master/repo/"
         }
     }
 }
@@ -61,7 +61,7 @@ apply plugin: 'maven-publish'
 publishing {
     publications {
         mavenJava (MavenPublication) {
-            artifactId 'rest-server'
+            artifactId 'rest_server'
 
             artifact packageServer {
                 extension "zip"

@@ -17,21 +17,9 @@ compileJava {
 }
 
 
-
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
+jar {
+    archiveName='ace_'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
 }
 
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
 
-artifacts {
-    archives jar
-    archives javadocJar
-    archives sourcesJar
-}
 
