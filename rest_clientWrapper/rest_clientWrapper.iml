@@ -12,18 +12,19 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="rest_api" exported="" />
+    <orderEntry type="library" exported="" name="activation-1.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-asl-1.9.2" level="project" />
+    <orderEntry type="library" exported="" name="controller-api-3.7.10" level="project" />
+    <orderEntry type="library" exported="" name="jersey-json-1.17.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-xc-1.9.2" level="project" />
     <orderEntry type="library" exported="" name="jettison-1.1" level="project" />
-    <orderEntry type="library" exported="" name="jaxb-api-2.2.2" level="project" />
-    <orderEntry type="library" exported="" name="jersey-json-1.17.1" level="project" />
+    <orderEntry type="library" exported="" name="jersey-core-1.17.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-mapper-asl-1.9.2" level="project" />
+    <orderEntry type="library" exported="" name="stax-api-1.0-2" level="project" />
     <orderEntry type="library" exported="" name="jackson-jaxrs-1.9.2" level="project" />
     <orderEntry type="library" exported="" name="jersey-client-1.17.1" level="project" />
-    <orderEntry type="library" exported="" name="jackson-mapper-asl-1.9.2" level="project" />
     <orderEntry type="library" exported="" name="jaxb-impl-2.2.3-1" level="project" />
-    <orderEntry type="library" exported="" name="activation-1.1" level="project" />
-    <orderEntry type="library" exported="" name="jersey-core-1.17.1" level="project" />
-    <orderEntry type="library" exported="" name="jackson-core-asl-1.9.2" level="project" />
-    <orderEntry type="library" exported="" name="stax-api-1.0-2" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-api-2.2.2" level="project" />
   </component>
 </module>
 

@@ -2,7 +2,7 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'com.appdynamics.ace.rest'
-    version = '1.0'
+    version = '1.1'
 
     idea{
 	    module {
@@ -14,22 +14,31 @@ allprojects {
 
     repositories {
     mavenCentral()
-    maven {
-        url "https://raw.github.com/Appdynamics/artifact-library/master/repo/"
+        maven {
+            url "https://raw.github.com/Appdynamics/artifact-library/master/repo/"
+        }
+        maven {
+            url "file:///vlab/maven/private-artifact-library/repo/"
         }
     }
 }
 
 configurations {
     release
+    debugRelease
 }
 
 dependencies {
     release project (':rest_util')
     release project (':rest_api')
     release project (':rest_server')
-}
+    //TODO: do the same for DEBUG ADDONS
+    //----------------------------------
+    debugRelease project (':rest_util')
+    debugRelease project (':rest_api')
+    debugRelease project (':rest_serverDebug')
 
+}
 
 
 task packageServer(type: Zip) {
@@ -37,15 +46,22 @@ task packageServer(type: Zip) {
 
     include 'ace_*.jar'
     // Replace with better configuration Handling (MayBe)
-
     destinationDir = file("$buildDir/zips")
     baseName ='ACE_RestServer'
     extension = 'zip'
-    version = '1.0'
+    version = project.version
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
+task packageDebugServer(type: Zip) {
+    from configurations.debugRelease
+
+    include 'ace_*.jar'
+    include 'groovy-all*.jar'
+    // Replace with better configuration Handling (MayBe)
+    destinationDir = file("$buildDir/zips")
+    baseName ='ACE_RestServerDebug'
+    extension = 'zip'
+    version = project.version
 }
 
 task clean << {
@@ -53,6 +69,7 @@ task clean << {
 }
 
 task build (dependsOn: packageServer) << {}
+build.dependsOn(packageDebugServer)
 
 
 // Server Code Publish
@@ -67,6 +84,7 @@ publishing {
                 extension "zip"
             }
         }
+
     }
     repositories {
         maven {
@@ -76,6 +94,6 @@ publishing {
     }
 }
 
-
-
-
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}

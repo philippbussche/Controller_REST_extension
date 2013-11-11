@@ -12,7 +12,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jersey-core-1.17.1" level="project" />
-    <orderEntry type="library" exported="" name="controller-api-3.7.10" level="project" />
   </component>
 </module>
 

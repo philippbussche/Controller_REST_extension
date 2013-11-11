@@ -180,6 +180,8 @@
       <module fileurl="file://$PROJECT_DIR$/rest_api/rest_api.iml" filepath="$PROJECT_DIR$/rest_api/rest_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/rest_clientWrapper/rest_clientWrapper.iml" filepath="$PROJECT_DIR$/rest_clientWrapper/rest_clientWrapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/rest_server/rest_server.iml" filepath="$PROJECT_DIR$/rest_server/rest_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_serverDebug/rest_serverDebug.iml" filepath="$PROJECT_DIR$/rest_serverDebug/rest_serverDebug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest_serverDebugApi/rest_serverDebugApi.iml" filepath="$PROJECT_DIR$/rest_serverDebugApi/rest_serverDebugApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/rest_util/rest_util.iml" filepath="$PROJECT_DIR$/rest_util/rest_util.iml" />
     </modules>
   </component>
@@ -212,6 +214,13 @@
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/asm/asm/3.1/source/2eaa4de56203f433f287a6df5885ef9ad3c5bcae/asm-3.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="bsh-2.0b4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.beanshell/bsh/2.0b4/jar/a05f0a0feefa8d8467ac80e16e7de071489f0d9c/bsh-2.0b4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="commons-codec-1.3">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/commons-codec/commons-codec/1.3/jar/fd32786786e2adb664d5ecc965da47629dca14ba/commons-codec-1.3.jar!/" />
@@ -223,7 +232,7 @@
     </library>
     <library name="controller-api-3.7.10">
       <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.appdynamics/controller-api/3.7.10/jar/c839fe711bf1884e9e4499d891f31db4fb47d0d2/controller-api-3.7.10.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../../maven/private-artifact-library/repo/com/appdynamics/controller-api/3.7.10/controller-api-3.7.10.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -243,6 +252,15 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES />
+    </library>
+    <library name="groovy-all-2.1.9">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.codehaus.groovy/groovy-all/2.1.9/jar/7745db37e5f42a1eeaba99178916a6d7cb1a434/groovy-all-2.1.9.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.codehaus.groovy/groovy-all/2.1.9/source/c634f7019224139742da9e194b14435419f0a63f/groovy-all-2.1.9-sources.jar!/" />
+      </SOURCES>
     </library>
     <library name="ha-api-3.1.9">
       <CLASSES>
@@ -424,6 +442,15 @@
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.sun.xml.ws/jaxws-rt/2.2.9-b14002/source/ab3d1f16aac167284ae7d4ee4889335843625ac6/jaxws-rt-2.2.9-b14002-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="jcommander-1.27">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.beust/jcommander/1.27/jar/58c9cbf0f1fa296f93c712f2cf46de50471920f9/jcommander-1.27.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.beust/jcommander/1.27/source/fae697ac46477a5227a5ee14f8f3a1270a4627b0/jcommander-1.27-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="jersey-client-1.17.1">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.sun.jersey/jersey-client/1.17.1/jar/b92fb0f202ca548f9067d57a133635fc1b8ad0ff/jersey-client-1.17.1.jar!/" />
@@ -539,6 +566,15 @@
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.sun.xml.messaging.saaj/saaj-impl/1.3.21/source/7695dbfdb5a5a38fff0f35032b9de86909c06541/saaj-impl-1.3.21-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="snakeyaml-1.6">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.yaml/snakeyaml/1.6/jar/a1e23e31c424d566ee27382e373d73a28fdabd88/snakeyaml-1.6.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.yaml/snakeyaml/1.6/source/ad2f59fe7bbbf758ee5f7282de133f18d5d3eda3/snakeyaml-1.6-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="stax-api-1.0-2">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/javax.xml.stream/stax-api/1.0-2/jar/d6337b0de8b25e53e81b922352fbea9f9f57ba0b/stax-api-1.0-2.jar!/" />
@@ -573,6 +609,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.sun.xml.stream.buffer/streambuffer/1.5.1/source/bf72390e8c15150358fb76512ddf577a7274789d/streambuffer-1.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="testng-6.8.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.testng/testng/6.8.1/jar/8aebea980eee079365df20f0cf7fcac900d50250/testng-6.8.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.testng/testng/6.8.1/source/a7f60cd283d77e9b6f0269ba53b832752f9e0de5/testng-6.8.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="woodstox-core-asl-4.1.2">

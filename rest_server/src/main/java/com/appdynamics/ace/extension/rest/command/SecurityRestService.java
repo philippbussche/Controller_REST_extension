@@ -1,7 +1,6 @@
 package com.appdynamics.ace.extension.rest.command;
 
 import com.appdynamics.ace.extension.rest.command.api.DataNotFoundException;
-import com.appdynamics.ace.extension.rest.command.api.ISecurityService;
 import com.appdynamics.ace.extension.rest.command.api.RestException;
 import com.appdynamics.ace.extension.rest.util.BeanLocator;
 import com.singularity.ee.controller.api.dto.Group;
@@ -27,7 +26,7 @@ import java.util.List;
  */
 
 @Path("aceSecurityService")
-public class SecurityRestService implements ISecurityService {
+public class SecurityRestService {
 
 
     private final IUserManager _userManager;
@@ -74,7 +73,7 @@ public class SecurityRestService implements ISecurityService {
         }
     }
 
-    @Override
+
     public List<User> findUSerByParent(String parentUserName) throws DataNotFoundException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

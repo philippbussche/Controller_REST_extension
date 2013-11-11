@@ -4,7 +4,6 @@ apply from: file("../publish.gradle")
 
 
 dependencies {
-    compile 'com.appdynamics:controller-api:3.7.10'
    // compile 'com.appdynamics:controller-beans:3.7.10'
     compile 'com.sun.jersey:jersey-core:1.17.1'
 
