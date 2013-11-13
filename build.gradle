@@ -24,6 +24,7 @@ allprojects {
 }
 
 configurations {
+    base
     release
     debugRelease
 }
@@ -32,16 +33,16 @@ dependencies {
     release project (':rest_util')
     release project (':rest_api')
     release project (':rest_server')
-    //TODO: do the same for DEBUG ADDONS
-    //----------------------------------
+
+    debugRelease project (':rest_serverDebug')
     debugRelease project (':rest_util')
     debugRelease project (':rest_api')
-    debugRelease project (':rest_serverDebug')
 
 }
 
 
 task packageServer(type: Zip) {
+    from configurations.base
     from configurations.release
 
     include 'ace_*.jar'
@@ -50,18 +51,38 @@ task packageServer(type: Zip) {
     baseName ='ACE_RestServer'
     extension = 'zip'
     version = project.version
+    duplicatesStrategy = 'exclude'
+}
+
+task packageAllServer(type: Zip) {
+    from configurations.base
+    from configurations.release
+    from configurations.debugRelease
+
+    include 'groovy-all*.jar'
+    include 'ace_*.jar'
+
+    // Replace with better configuration Handling (MayBe)
+    destinationDir = file("$buildDir/zips")
+    baseName ='ACE_RestServer_ALL'
+    extension = 'zip'
+    version = project.version
+    duplicatesStrategy = 'exclude'
 }
 
 task packageDebugServer(type: Zip) {
+    from configurations.base
     from configurations.debugRelease
 
     include 'ace_*.jar'
     include 'groovy-all*.jar'
+
     // Replace with better configuration Handling (MayBe)
     destinationDir = file("$buildDir/zips")
     baseName ='ACE_RestServerDebug'
     extension = 'zip'
     version = project.version
+    duplicatesStrategy = 'exclude'
 }
 
 task clean << {
@@ -70,6 +91,7 @@ task clean << {
 
 task build (dependsOn: packageServer) << {}
 build.dependsOn(packageDebugServer)
+build.dependsOn(packageAllServer)
 
 
 // Server Code Publish
