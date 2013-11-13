@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/rest_api">
+      <sourceFolder url="file://$MODULE_DIR$/rest_api/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rest_api/src/main/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rest_api/src/test/resources" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/rest_api/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/rest_api/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/rest_api/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/rest_api/build" />
+      <excludeFolder url="file://$MODULE_DIR$/rest_api/gradle" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="jersey-core-1.17.1" level="project" />
+    <orderEntry type="library" exported="" name="controller-api-3.7.10" level="project" />
+    <orderEntry type="library" exported="" name="controller-beans-3.7.10" level="project" />
+  </component>
+</module>
+
