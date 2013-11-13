@@ -1,4 +1,4 @@
-package com.appdynamics.ace.extension.rest.command;
+package com.appdynamics.ace.extension.rest.debug.api;
 
 import java.util.Date;
 

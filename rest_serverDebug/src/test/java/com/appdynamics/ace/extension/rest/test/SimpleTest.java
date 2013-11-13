@@ -1,8 +1,8 @@
 package com.appdynamics.ace.extension.rest.test;
 
 import com.appdynamics.ace.extension.rest.command.GroovyConsoleService;
-import com.appdynamics.ace.extension.rest.command.ScriptInfo;
-import com.appdynamics.ace.extension.rest.command.ScriptVersionInfo;
+import com.appdynamics.ace.extension.rest.debug.api.ScriptInfo;
+import com.appdynamics.ace.extension.rest.debug.api.ScriptVersionInfo;
 import org.testng.annotations.Test;
 
 import java.util.List;

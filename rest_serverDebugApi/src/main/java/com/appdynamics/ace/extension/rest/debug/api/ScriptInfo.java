@@ -1,4 +1,4 @@
-package com.appdynamics.ace.extension.rest.command;
+package com.appdynamics.ace.extension.rest.debug.api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,15 @@ import java.util.List;
  */
 public class ScriptInfo {
     private int _lastVersion;
+
+    public void setName(String name) {
+        _name = name;
+    }
+
+    public void setLastVersion(int lastVersion) {
+        _lastVersion = lastVersion;
+    }
+
     private String _name;
 
     public void setVersionInfos(List<ScriptVersionInfo> versionInfos) {
