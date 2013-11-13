@@ -1,9 +1,7 @@
 package com.appdynamics.ace.extension.rest.command;
 
 import com.appdynamics.ace.extension.rest.command.api.RestException;
-import com.appdynamics.ace.extension.rest.debug.api.ConsoleInfo;
-import com.appdynamics.ace.extension.rest.debug.api.ScriptResult;
-import com.appdynamics.ace.extension.rest.debug.api.ScriptStatus;
+import com.appdynamics.ace.extension.rest.debug.api.*;
 import groovy.lang.Binding;
 import groovy.lang.GroovyObject;
 import groovy.lang.Script;
@@ -36,6 +34,9 @@ public class GroovyConsoleService {
     private final File _historyPath;
     private final GroovyScriptEngine _gse;
 
+    public GroovyConsoleService() throws Exception {
+        this("../state/scripts");
+    }
     public GroovyConsoleService(String path) throws Exception {
         _path = new File(path);
 
@@ -68,6 +69,8 @@ public class GroovyConsoleService {
         clearScriptHistory();
 
     }
+
+
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -249,6 +252,7 @@ public class GroovyConsoleService {
             Binding binding = createBinding();
 
             BaseGroovyScript originalScript = (BaseGroovyScript) _gse.createScript(scriptname + "." + GROOVY_POSTFIX, binding);
+
             originalScript.setConsole(this);
 
             Object erg = originalScript.run();
