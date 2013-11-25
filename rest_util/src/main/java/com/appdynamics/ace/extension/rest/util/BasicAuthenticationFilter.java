@@ -39,8 +39,6 @@ public class BasicAuthenticationFilter implements Filter {
         HttpServletResponse httpResp = (HttpServletResponse) response;
 
 
-
-
         String basicAuth = httpReq.getHeader("Authorization");
 
 
