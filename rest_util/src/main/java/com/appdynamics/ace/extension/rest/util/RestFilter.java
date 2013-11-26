@@ -40,9 +40,23 @@ public class RestFilter implements Filter {
         HttpServletResponse httpResp = (HttpServletResponse) response;
 
 
+        doAuth(httpReq, httpResp);
+
+        disableCache(httpReq,httpResp);
+
+
+
+        chain.doFilter(request, response);
+    }
+
+    private void disableCache(HttpServletRequest httpReq, HttpServletResponse httpResp) {
+           //These are the correct headers to disable caching in IE 8 and 9
+            ((HttpServletResponse)httpResp).setHeader("cache-control", "no-cache, no-store, max-age=0, must-revalidate");
+            ((HttpServletResponse)httpResp).setHeader("Pragma", "no-cache");
+    }
+
+    private void doAuth(HttpServletRequest httpReq, HttpServletResponse httpResp) throws IOException {
         String basicAuth = httpReq.getHeader("Authorization");
-
-
         if (basicAuth != null) {
 
             if (basicAuth.startsWith("Basic")) {
@@ -75,10 +89,6 @@ public class RestFilter implements Filter {
         }  else {
             _logger.log(Level.INFO,"Basic authorization not provided;");
         }
-
-
-
-        chain.doFilter(request, response);
     }
 
     @Override
