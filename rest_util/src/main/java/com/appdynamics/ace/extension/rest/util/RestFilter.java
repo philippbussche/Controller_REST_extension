@@ -1,6 +1,6 @@
 package com.appdynamics.ace.extension.rest.util;
 
-import com.appdynamics.ace.extension.rest.command.api.Constants;
+
 import sun.misc.BASE64Decoder;
 
 import javax.servlet.*;
@@ -87,7 +87,7 @@ public class RestFilter implements Filter {
                 }
             }
         }  else {
-            _logger.log(Level.INFO,"Basic authorization not provided;");
+            //_logger.log(Level.INFO,"Basic authorization not provided;");
         }
     }
 

@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 
-import com.appdynamics.ace.extension.rest.command.api.Constants;
+
 
 /**
  *
@@ -25,11 +25,14 @@ import com.appdynamics.ace.extension.rest.command.api.Constants;
  */
 
 
-@WebServlet(urlPatterns="/"+Constants.PREFIX+"/*", initParams={
+@WebServlet(urlPatterns="/restExtensions/*", initParams={
         @WebInitParam(name="jersey.config.server.provider.packages", value="com.appdynamics.ace.extension.rest.command"),
         @WebInitParam(name= JSONConfiguration.FEATURE_POJO_MAPPING, value="true")},
         loadOnStartup = 1
 )
 public class RestServlet extends ServletContainer {
+
+
+
 
 }
