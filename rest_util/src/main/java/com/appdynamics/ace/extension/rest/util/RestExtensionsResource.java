@@ -21,6 +21,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.appdynamics.ace.extension.rest.util.command.ExtensionInfo;
+import com.appdynamics.ace.extension.rest.util.command.ExtensionInfoRest;
 import com.sun.jersey.api.core.DefaultResourceConfig;
 import com.sun.jersey.api.core.ScanningResourceConfig;
 import com.sun.jersey.core.reflection.ReflectionHelper;
@@ -76,6 +78,7 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
     private void init(Scanner scanner) {
 
+        System.out.println("CALLING INIT SCANNER");
         this.scanner = scanner;
 
         URLClassLoader cl = new URLClassLoader(getExtURLs(), ReflectionHelper.getContextClassLoader());
@@ -83,7 +86,14 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
         final AnnotationScannerListener asl = new PathProviderScannerListener(cl);
         scanner.scan(asl);
 
+
         getClasses().addAll(asl.getAnnotatedClasses());
+        addAdditionalClasses(getClasses());
+        logClasses("found directly:", get(Path.class));
+        logClasses("helper found directly:", get(Provider.class));
+
+
+
 
         if (LOGGER.isLoggable(Level.INFO) && !getClasses().isEmpty()) {
             final Set<Class> rootResourceClasses = get(Path.class);
@@ -103,10 +113,11 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
         }
 
 
-        addAdditionalClasses(getClasses());
 
         cachedClasses.clear();
         cachedClasses.addAll(getClasses());
+
+
 
     }
 
@@ -118,7 +129,7 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
         cl.add(JsonMappingExceptionMapper.class);
         cl.add(JsonParseExceptionMapper.class);
 
-       // cl.add(ServerInfoRest.class);
+        cl.add(ExtensionInfoRest.class);
 
 
     }
@@ -178,8 +189,8 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
         getClasses().clear();
 
-        init(scanner);
-
+        //init(scanner);
+        init();
         getClasses().addAll(classesToAdd);
         getClasses().removeAll(classesToRemove);
     }

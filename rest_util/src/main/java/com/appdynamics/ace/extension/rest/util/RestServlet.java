@@ -26,10 +26,10 @@ import javax.servlet.annotation.WebServlet;
 
 
 @WebServlet(urlPatterns="/restExtensions/*", initParams={
-        @WebInitParam(name="jersey.config.server.provider.packages", value="com.appdynamics.ace.extension.rest.command"),
+        @WebInitParam(name="jersey.config.server.provider.packages", value="com.appdynamics.ace.extension.rest.command,com.appdynamics.ace.extension.rest.util.command"),
         @WebInitParam(name= JSONConfiguration.FEATURE_POJO_MAPPING, value="true")},
-        loadOnStartup = 1
-)
+        loadOnStartup = 1)
+
 public class RestServlet extends ServletContainer {
 
 

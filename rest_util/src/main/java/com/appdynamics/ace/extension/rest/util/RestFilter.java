@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * To change this template use File | Settings | File Templates.
  */
 
-@WebFilter ("/"+ Constants.PREFIX+"/*")
+@WebFilter ({"/"+ Constants.PREFIX+"/*","/extensionApi/*"})
 public class RestFilter implements Filter {
     private static final long serialVersionUID = 1L;
 
