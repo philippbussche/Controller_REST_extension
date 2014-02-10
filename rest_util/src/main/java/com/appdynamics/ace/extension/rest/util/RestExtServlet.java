@@ -13,10 +13,14 @@ import java.lang.Exception;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
+import com.sun.jersey.spi.container.ContainerListener;
+import com.sun.jersey.spi.container.ContainerNotifier;
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 import com.sun.jersey.spi.container.servlet.WebConfig;
 
@@ -35,6 +39,7 @@ public class RestExtServlet extends ServletContainer
 {
     private static RestExtServlet _instance;
     private RestExtensionsResource _ctx;
+    private Reloader _reloader;
 
     public RestExtServlet() {
         super();
@@ -56,7 +61,6 @@ public class RestExtServlet extends ServletContainer
     protected ResourceConfig getDefaultResourceConfig(Map<String, Object> props, WebConfig wc) throws ServletException
     {
 
-        System.out.println("XXXXXXXXXXXX : Started ");
         File jarPath = getRestExtensionsRootDir();
 
           //      new File("./build/extensions/webservices");
@@ -73,6 +77,9 @@ public class RestExtServlet extends ServletContainer
 
           _ctx = new RestExtensionsResource(jarPath);
 
+
+        _reloader = new Reloader();
+        _ctx.getProperties().put(ResourceConfig.PROPERTY_CONTAINER_NOTIFIER, _reloader);
       return _ctx;
     }
 
@@ -81,6 +88,25 @@ public class RestExtServlet extends ServletContainer
     }
 
     public void reloadContext() {
+        _reloader.reload();
         this.reload();
+    }
+
+    public class Reloader implements ContainerNotifier {
+        List<ContainerListener> ls;
+
+        public Reloader() {
+            ls = new ArrayList<ContainerListener>();
+        }
+
+        public void addListener(ContainerListener l) {
+            ls.add(l);
+        }
+
+        public void reload() {
+            for (ContainerListener l : ls) {
+                l.onReload();
+            }
+        }
     }
 }

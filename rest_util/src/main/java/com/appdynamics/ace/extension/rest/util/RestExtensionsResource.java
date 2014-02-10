@@ -78,7 +78,6 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
     private void init(Scanner scanner) {
 
-        System.out.println("CALLING INIT SCANNER");
         this.scanner = scanner;
 
         URLClassLoader cl = new URLClassLoader(getExtURLs(), ReflectionHelper.getContextClassLoader());
@@ -176,6 +175,7 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
      */
     @Override
     public void onReload() {
+
         Set<Class<?>> classesToRemove = new HashSet<Class<?>>();
         Set<Class<?>> classesToAdd = new HashSet<Class<?>>();
 
