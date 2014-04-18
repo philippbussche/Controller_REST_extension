@@ -67,7 +67,7 @@ public class RestExtServlet extends ServletContainer
 
         try {
 
-            if (!jarPath.exists())  jarPath.mkdirs();
+            if (!jarPath.exists())  new File(jarPath,".empty").mkdirs();
         }   catch (Exception ex ) {
             ex.printStackTrace();
             throw new ServletException("Cannot create Extensions Path/Ext Path "+jarPath.getAbsolutePath()+") doesn't exist)",ex);
@@ -76,7 +76,7 @@ public class RestExtServlet extends ServletContainer
         if (!jarPath.canRead()) throw new ServletException("Cannot read in Ext Dir ("+jarPath.getAbsolutePath()+")");
 
           _ctx = new RestExtensionsResource(jarPath);
-
+         _ctx.setServlet(this);
 
         _reloader = new Reloader();
         _ctx.getProperties().put(ResourceConfig.PROPERTY_CONTAINER_NOTIFIER, _reloader);

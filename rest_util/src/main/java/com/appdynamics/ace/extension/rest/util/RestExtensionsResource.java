@@ -13,11 +13,7 @@ import java.lang.Class;import java.lang.Override;import java.lang.String;import 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,6 +50,9 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
     private List<File> _files;
     private File _jarPath;
+    private String _content;
+    private Thread _updater;
+    private RestExtServlet _servlet;
 
     public RestExtensionsResource(File jarPath) {
         super();
@@ -74,7 +73,25 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
         init(scanner);
 
 
+        _content = getExtensionContentHash();
+
+        _updater = new Thread(new Updater(this));
+
+        _updater.start();
+
     }
+
+    private String getExtensionContentHash() {
+        List<File> jars = getJars();
+
+        StringBuilder c = new StringBuilder("CH:");
+        for (File jar : jars) {
+            c.append(jar.getName()).append(":").append(jar.lastModified()).append(":").append(jar.length());
+            c.append("\n");
+        }
+        return c.toString();
+    }
+
 
     private void init(Scanner scanner) {
 
@@ -150,12 +167,16 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
     private List<File> getJars() {
         ArrayList<File> erg = new ArrayList<File>();
-        Collections.addAll(erg, getJarPath().listFiles(new FilenameFilter() {
+
+
+        File[] jarfiles = getJarPath().listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File file, String s) {
                 return s.endsWith(".jar");
             }
-        }));
+        });
+
+        if (jarfiles != null)  Collections.addAll(erg,jarfiles);
 
 
         return erg;
@@ -212,5 +233,42 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
             b.append('\n').append("  ").append(c);
 
         LOGGER.log(Level.INFO, b.toString());
+    }
+
+    public void setServlet(RestExtServlet servlet) {
+        _servlet = servlet;
+    }
+
+    public RestExtServlet getServlet() {
+        return _servlet;
+    }
+
+    private class Updater implements Runnable {
+
+
+        private final RestExtensionsResource _res;
+
+        public Updater(RestExtensionsResource restExtensionsResource) {
+            _res = restExtensionsResource;
+        }
+        @Override
+        public void run() {
+            try {
+
+                while (true){
+                    Thread.sleep(1000*60*1);
+                    String currentContent = getExtensionContentHash();
+
+                    if (!currentContent.equals(_content)) {
+                        _res.getServlet().reloadContext();
+                        _content = currentContent;
+                    }
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return;
+            }
+        }
     }
 }

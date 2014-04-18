@@ -1,5 +1,9 @@
 package com.appdynamics.ace.extension.rest.command;
 
+import com.singularity.ee.controller.api.exceptions.ServerException;
+
+import com.appdynamics.ace.extension.rest.util.BeanLocator;
+
 import groovy.lang.GroovyRuntimeException;
 import groovy.lang.Script;
 import groovy.util.ResourceException;
@@ -51,5 +55,10 @@ public abstract class BaseGroovyScript extends Script {
 
     public GroovyConsoleService getConsole() {
         return _console;
+    }
+
+    public String helloWorld (String world) throws ServerException {
+
+        return world.toUpperCase();
     }
 }

@@ -71,8 +71,8 @@ public class RestFilter implements Filter {
 
                     if (userAndAccount != null && password != null &&
                             userAndAccount.length() > 0 && password.length() > 0) {
-                        HttpSession session = httpReq.getSession(true);
-                        if (session != null) {
+                        //HttpSession session = httpReq.getSession(false);
+                        //if (session != null) {
                             try {
                                 httpReq.login(userAndAccount, password);
                                 _logger.log(Level.INFO, "Session created... returning SC_OK");
@@ -80,7 +80,7 @@ public class RestFilter implements Filter {
                             catch(ServletException se) {
                                 _logger.log(Level.INFO, "HttpServletRequest.login failed", se);
                             }
-                        }
+                        //}
                     }
                 } else {
                     _logger.log(Level.INFO,"Malformed basic auth string;");

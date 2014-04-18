@@ -2,7 +2,7 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'com.appdynamics.ace.rest'
-    version = '1.2-SNAPSHOT'
+    version = '1.2'
 
     idea{
 	    module {
@@ -32,7 +32,7 @@ configurations {
 dependencies {
     release project (':rest_util')
     release project (':rest_api')
-    release project (':rest_server')
+   // release project (':rest_server')
 
     debugRelease project (':rest_serverDebug')
     debugRelease project (':rest_util')
