@@ -8,5 +8,5 @@ package com.appdynamics.ace.extension.rest.command.api;
  * To change this template use File | Settings | File Templates.
  */
 public interface Constants {
-    public final String PREFIX = "restExtensions";
+    public final String PREFIX = "extensionApi";
 }

@@ -15,7 +15,7 @@ dependencies {
     compile project(':rest_util')
     compile project(':rest_serverDebugApi')
 
-    compile 'com.appdynamics:controller-api:3.7.10'
+    compile 'com.appdynamics:controller-api:4.1.0'
 
     testCompile "junit:junit:4.11"
 
