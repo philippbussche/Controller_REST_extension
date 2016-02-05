@@ -1,8 +1,6 @@
 repositories {
     mavenCentral()
-    maven {
-        url "http://nexus.marx-merten.de/nexus/content/groups/allAce/"
-    }
+   
 }
 
 
