@@ -1,7 +1,13 @@
 package com.appdynamics.ace.extension.rest.util;
 
 import javax.naming.InitialContext;
+import javax.naming.NameClassPair;
+import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,6 +35,33 @@ public class BeanLocator {
             throw new RuntimeException(e);
         }
     }
+
+    public List<String> listAll(String filter)
+    {
+        try
+        {
+            ArrayList<String> result = new ArrayList<String>();
+
+            final InitialContext ctx = new InitialContext();
+
+            NamingEnumeration<NameClassPair> l = ctx.list(filter);
+
+            while (l.hasMoreElements()) {
+                NameClassPair p = l.nextElement();
+
+                p.getName();
+            }
+
+            return result;
+        }
+        catch (NamingException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
 
     private <T> String parseClassName(Class<T> clazz)
     {
