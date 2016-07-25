@@ -97,7 +97,7 @@ class RestExtensionsResource extends DefaultResourceConfig implements ReloadList
 
         this.scanner = scanner;
 
-        URLClassLoader cl = new URLClassLoader(getExtURLs(), ReflectionHelper.getContextClassLoader());
+        URLClassLoader cl = new ChildFirstURLClassLoader(getExtURLs(), ReflectionHelper.getContextClassLoader());
 
         final AnnotationScannerListener asl = new PathProviderScannerListener(cl);
         scanner.scan(asl);

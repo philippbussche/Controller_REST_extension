@@ -7,7 +7,6 @@ import javax.naming.NamingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,6 +42,7 @@ public class BeanLocator {
             ArrayList<String> result = new ArrayList<String>();
 
             final InitialContext ctx = new InitialContext();
+
 
             NamingEnumeration<NameClassPair> l = ctx.list(filter);
 
