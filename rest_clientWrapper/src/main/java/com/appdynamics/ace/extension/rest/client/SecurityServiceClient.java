@@ -2,6 +2,7 @@ package com.appdynamics.ace.extension.rest.client;
 
 import com.singularity.ee.controller.api.dto.Group;
 import com.singularity.ee.controller.api.dto.User;
+import com.singularity.ee.controller.api.dto.AccountRole;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
@@ -71,8 +72,6 @@ public class SecurityServiceClient {
             return response.getEntity(User.class);
         }
         else throw new RestClientException(response);
-
-
     }
 
     public void deleteUser(String username) throws RestClientException {
@@ -97,6 +96,31 @@ public class SecurityServiceClient {
             return response.getEntity(new GenericType<List<Group>>(){});
         }
         else throw new RestClientException(response);
+    }
+
+    public Group getGroup(String groupname) throws RestClientException {
+        ClientResponse response = _restClient.path("groups")
+                .path(groupname)
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(Group.class);
+        }
+        else throw new RestClientException(response);
+
+    }
+
+    public void deleteGroup(String groupname) throws RestClientException {
+        ClientResponse response = _restClient.path("group")
+                .path(groupname)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+
+        if (response.getStatus() >= 300 ) {
+
+            throw new RestClientException(response);
+        }
     }
 
     public void clearGroupsForUser(String username) throws RestClientException{
@@ -132,5 +156,161 @@ public class SecurityServiceClient {
             return response.getEntity(Group.class);
         }
         else throw new RestClientException(response);
+    }
+
+    public void removeUserFromGroup(String username, String groupname) throws RestClientException{
+
+        ClientResponse response = _restClient.path("userGroups")
+                .path(username)
+                .path(groupname)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+        if (response.getStatus() >=300) {
+            throw new RestClientException(response);
+        }
+    }
+
+    public AccountRole createAccountRole(AccountRole r) throws RestClientException {
+        ClientResponse response = _restClient.path("createAccountRole")
+                .type(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, r);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(AccountRole.class);
+        }
+        else throw new RestClientException(response);
+    }
+
+    public AccountRole getAccountRole(String rolename) throws RestClientException {
+        ClientResponse response = _restClient.path("accountRoles")
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(AccountRole.class);
+        }
+        else throw new RestClientException(response);
+
+    }
+
+    public void deleteAccountRole(String rolename) throws RestClientException {
+        ClientResponse response = _restClient.path("role")
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+
+        if (response.getStatus() >= 300 ) {
+
+            throw new RestClientException(response);
+        }
+    }
+
+    public AccountRole copyPermisionsFromApplication(String role,String srcApp, String destApp) throws RestClientException {
+        ClientResponse response = _restClient.path("accountRoles")
+                .path(role)
+                .path("copyFrom")
+                .path(srcApp)
+                .path("to")
+                .path(destApp)
+                .type(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(AccountRole.class);
+        }
+        else throw new RestClientException(response);
+    }
+    public List<Group> getAllGroups() throws RestClientException{
+
+        ClientResponse response = _restClient.path("getAllGroups").accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(new GenericType<List<Group>>(){});
+        }
+        else throw new RestClientException(response);
+    }
+
+    public List<AccountRole> getAllAccountRoles() throws RestClientException{
+
+        ClientResponse response = _restClient.path("getAllAccountRoles").accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(new GenericType<List<AccountRole>>(){});
+        }
+        else throw new RestClientException(response);
+    }
+
+    public Group updateGroup(Group src) throws RestClientException {
+        ClientResponse response = _restClient.path("userGroups")
+                .type(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, src);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(Group.class);
+        }
+        else throw new RestClientException(response);
+    }
+
+    public AccountRole updateAccountRole(AccountRole src) throws RestClientException {
+        ClientResponse response = _restClient.path("updateAccountRole")
+                .type(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, src);
+
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            return response.getEntity(AccountRole.class);
+        }
+        else throw new RestClientException(response);
+    }
+
+    public void addAccountRoleToUser(String username, String rolename) throws RestClientException {
+        ClientResponse response = _restClient.path("userRoles")
+                .path(username)
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class);
+        if (response.getStatus() >=300) {
+            throw new RestClientException(response);
+        }
+    }
+
+    public void addAccountRoleToGroup(String groupname, String rolename) throws RestClientException {
+        ClientResponse response = _restClient.path("groupRoles")
+                .path(groupname)
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class);
+        if (response.getStatus() >=300) {
+            throw new RestClientException(response);
+        }
+    }
+
+    public void removeAccountRoleFromUser(String username, String rolename) throws RestClientException{
+
+        ClientResponse response = _restClient.path("userRoles")
+                .path(username)
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+        if (response.getStatus() >=300) {
+            throw new RestClientException(response);
+        }
+    }
+
+
+    public void removeAccountRoleFromGroup(String groupname, String rolename) throws RestClientException{
+
+        ClientResponse response = _restClient.path("groupRoles")
+                .path(groupname)
+                .path(rolename)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+        if (response.getStatus() >=300) {
+            throw new RestClientException(response);
+        }
     }
 }
