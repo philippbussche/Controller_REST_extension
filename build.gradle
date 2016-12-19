@@ -2,7 +2,7 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'com.appdynamics.ace.rest'
-    version = '1.4.1'
+    version = '1.4.2'
 
     idea{
 	    module {
@@ -28,6 +28,7 @@ configurations {
     base
     release
     debugRelease
+    pluginsRelease
 }
 
 dependencies {
@@ -36,8 +37,11 @@ dependencies {
    // release project (':rest_server')
 
     debugRelease project (':rest_groovy')
-    debugRelease project (':rest_util')
-    debugRelease project (':rest_api')
+//    debugRelease project (':rest_util')
+//    debugRelease project (':rest_api')
+
+    pluginsRelease project (':rest_groovy')
+    pluginsRelease project (':rest_server')
 
 }
 
@@ -55,21 +59,22 @@ task packageServer(type: Zip) {
     duplicatesStrategy = 'exclude'
 }
 
-task packageAllServer(type: Zip) {
+
+task packagePlugins(type: Zip) {
     from configurations.base
-    from configurations.release
-    from configurations.debugRelease
+    from configurations.pluginsRelease
 
-    include 'groovy-all*.jar'
     include 'ace_*.jar'
-
+    include 'groovy-all*.jar'
     // Replace with better configuration Handling (MayBe)
     destinationDir = file("$buildDir/zips")
-    baseName ='ACE_RestServer_ALL'
+    baseName ='ACE_RestPlugins'
     extension = 'zip'
     version = project.version
     duplicatesStrategy = 'exclude'
 }
+
+
 
 task packageDebugServer(type: Zip) {
     from configurations.base
@@ -90,9 +95,9 @@ task clean << {
     delete('build')
 }
 
-task build (dependsOn: packageServer) << {}
-build.dependsOn(packageDebugServer)
-build.dependsOn(packageAllServer)
+task packageAll(dependsOn: [packageServer,packagePlugins])
+task build (dependsOn: packageAll)
+
 
 
 // Server Code Publish
