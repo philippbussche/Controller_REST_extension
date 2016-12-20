@@ -17,7 +17,7 @@ public class ExtensionInfo {
     private List<FileInfo> _fileList;
 
     public ExtensionInfo() {
-        setVersion("1.2");
+        setVersion("1.4.2");
         setInstalled(true);
         File rootDir = RestExtServlet.getRestExtensionsRootDir();
         List<File> jars = getJars(rootDir);
