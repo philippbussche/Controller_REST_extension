@@ -51,6 +51,8 @@ task packageServer(type: Zip) {
     from configurations.release
 
     include 'ace_*.jar'
+
+
     // Replace with better configuration Handling (MayBe)
     destinationDir = file("$buildDir/zips")
     baseName ='ACE_RestServer'
@@ -61,10 +63,9 @@ task packageServer(type: Zip) {
 
 
 task packagePlugins(type: Zip) {
-    from configurations.base
     from configurations.pluginsRelease
 
-    include 'ace_*.jar'
+    include 'ace_plugin_*.jar'
     include 'groovy-all*.jar'
     // Replace with better configuration Handling (MayBe)
     destinationDir = file("$buildDir/zips")

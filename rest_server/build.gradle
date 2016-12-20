@@ -29,7 +29,7 @@ compileJava {
 }
 
 jar {
-    archiveName='ace_'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
+    archiveName='ace_plugin_'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
 }
 
 
