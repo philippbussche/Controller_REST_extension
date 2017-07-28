@@ -74,11 +74,14 @@ public class RestFilter implements Filter {
                         //HttpSession session = httpReq.getSession(false);
                         //if (session != null) {
                             try {
-                                httpReq.login(userAndAccount, password);
-                                _logger.log(Level.INFO, "Session created... returning SC_OK");
+                                boolean loginOK = ProgrammaticLoginHelper.login(userAndAccount, password.toCharArray(), httpReq, httpResp);
+                                if (loginOK) _logger.log(Level.INFO, "Session created... returning SC_OK");
+                                else _logger.log(Level.WARNING,"User couldn't login :"+userAndAccount);
                             }
                             catch(ServletException se) {
                                 _logger.log(Level.INFO, "HttpServletRequest.login failed", se);
+                            } catch (Exception e) {
+                                _logger.log(Level.INFO, "HttpServletRequest.login failed", e);
                             }
                         //}
                     }

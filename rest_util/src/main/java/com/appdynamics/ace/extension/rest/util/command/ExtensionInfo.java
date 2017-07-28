@@ -1,32 +1,46 @@
 package com.appdynamics.ace.extension.rest.util.command;
 
 
+import com.appdynamics.ace.extension.rest.util.RestExtensionServletWrapper;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by stefan.marx on 18.12.13.
  */
 public class ExtensionInfo {
+    public ArrayList<String> getLoadedClasses() {
+        return _loadedClasses;
+    }
+
+    private final ArrayList<String> _loadedClasses;
     private String _version;
     private boolean _installed;
     private List<FileInfo> _fileList;
 
     public ExtensionInfo() {
-        setVersion("1.4.2");
+        setVersion("1.4.3");
         setInstalled(true);
-//        File rootDir = RestExtServlet.getRestExtensionsRootDir();
-//        List<File> jars = getJars(rootDir);
-//
-//        List<FileInfo> fi = new ArrayList<FileInfo>();
-//        for (File j : jars) {
-//            fi.add(new FileInfo(j.getName(), j.length(), j.lastModified()));
-//        }
-//
-//        setFileList(fi);
+        List<File> jars = RestExtensionServletWrapper.getJars(RestExtensionServletWrapper.getRestExtensionsRootDir());
+
+        List<FileInfo> fi = new ArrayList<FileInfo>();
+        for (File j : jars) {
+            fi.add(new FileInfo(j.getName(), j.length(), j.lastModified()));
+        }
+
+        setFileList(fi);
+
+        _loadedClasses = new ArrayList<String>();
+
+        Set<Class<?>> clazzes = RestExtensionServletWrapper.getInstance().getLoaddedClasses();
+        for (Class cl : clazzes) {
+            _loadedClasses.add(cl.getName());
+        }
 
 
     }
