@@ -1,6 +1,5 @@
 package com.appdynamics.ace.extension.rest.util.command;
 
-import com.appdynamics.ace.extension.rest.util.RestExtServlet;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -19,15 +18,15 @@ public class ExtensionInfo {
     public ExtensionInfo() {
         setVersion("1.4.2");
         setInstalled(true);
-        File rootDir = RestExtServlet.getRestExtensionsRootDir();
-        List<File> jars = getJars(rootDir);
-
-        List<FileInfo> fi = new ArrayList<FileInfo>();
-        for (File j : jars) {
-            fi.add(new FileInfo(j.getName(), j.length(), j.lastModified()));
-        }
-
-        setFileList(fi);
+//        File rootDir = RestExtServlet.getRestExtensionsRootDir();
+//        List<File> jars = getJars(rootDir);
+//
+//        List<FileInfo> fi = new ArrayList<FileInfo>();
+//        for (File j : jars) {
+//            fi.add(new FileInfo(j.getName(), j.length(), j.lastModified()));
+//        }
+//
+//        setFileList(fi);
 
 
     }

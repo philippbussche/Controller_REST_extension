@@ -1,7 +1,5 @@
 package com.appdynamics.ace.extension.rest.util.command;
 
-import com.appdynamics.ace.extension.rest.util.RestExtServlet;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -23,8 +21,8 @@ public class ExtensionInfoRest {
     @Path ("reload")
     @GET
     public String reloadResourceContainer () {
-        RestExtServlet servlet = RestExtServlet.getInstance();
-        servlet.reloadContext();
+//        RestExtServlet servlet = RestExtServlet.getInstance();
+//        servlet.reloadContext();
 
         return "Reloaded!";
     }
