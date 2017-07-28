@@ -5,7 +5,12 @@ apply from: file("../publish.gradle")
 
 dependencies {
    // compile 'com.appdynamics:controller-beans:3.7.10'
-    compile 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'org.glassfish.jersey.core:jersey-server:2.21'
+    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.21'
+
+
+    // compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.7.5'
+
 
 }
 

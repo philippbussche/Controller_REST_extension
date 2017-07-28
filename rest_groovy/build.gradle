@@ -2,9 +2,6 @@ apply plugin:'java'
 apply from: file("../publish.gradle")
 
 dependencies {
-    compile 'com.sun.jersey:jersey-core:1.17.1'
-
-    compile 'com.sun.jersey:jersey-json:1.17.1'
 
     compile 'javax.servlet:javax.servlet-api:3.0.1'
 

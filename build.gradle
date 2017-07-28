@@ -51,6 +51,7 @@ task packageServer(type: Zip) {
     from configurations.release
 
     include 'ace_*.jar'
+    //include 'jersey-json-*.jar'
 
 
     // Replace with better configuration Handling (MayBe)

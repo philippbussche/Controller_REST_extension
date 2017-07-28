@@ -3,10 +3,10 @@ apply from: file("../publish.gradle")
 
 dependencies {
       compile project(':rest_api')
-      compile 'com.sun.jersey:jersey-core:1.17.1'
+      compile 'com.sun.jersey:jersey-core:1.18.1'
 
-      compile 'com.sun.jersey:jersey-json:1.17.1'
-      compile 'com.sun.jersey:jersey-client:1.17.1'
+      compile 'com.sun.jersey:jersey-json:1.18.1'
+      compile 'com.sun.jersey:jersey-client:1.18.1'
 
     compile 'com.appdynamics:controller-api:4.2.1'
 
