@@ -1,0 +1,22 @@
+apply plugin:'java'
+apply from: file("../publish.gradle")
+
+dependencies {
+    compile 'com.sun.jersey:jersey-core:1.18.1'
+    compile fileTree(dir: '/Users/philipp/development/libs', include: '*.jar')
+    compile 'com.appdynamics:controller-api:4.2.1'
+    testCompile "junit:junit:4.11"
+}
+
+
+compileJava {
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+}
+
+jar {
+    archiveName='ace_plugin_'+Character.toUpperCase(archiveName.charAt(0)) + archiveName.substring(1)
+}
+
+
+

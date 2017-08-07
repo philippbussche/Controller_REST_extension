@@ -1,4 +1,4 @@
-include 'rest_util','rest_api','rest_clientWrapper','rest_server' ,"rest_groovy"
+include 'rest_util','rest_api','rest_clientWrapper','rest_server' ,"rest_groovy", "rest_nodes"
 //'web-ui','backend-server' ,'backend-api','web-new'
 //,'web-grails'
 
